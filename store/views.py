@@ -8,8 +8,8 @@ def categories(request):
         'categories': Category.objects.all()
     }
 
-def all_products(request):
-    products = Product.objects.all()
+def product_all(request):
+    products = Product.products.all()  #added .products for filter if is active or no
     return render(request, 'home.html', {'products': products})
 
 def product_detail(request, slug):

@@ -29,6 +29,12 @@ class TestViewsResponses(TestCase):
         response = self.c.get('/')
         self.assertEqual(response.status_code, 200)
         
+    # def test_url_allowed_hosts(self):
+    #     response = self.c.get('/', HTTP_HOST='noadress.com')
+    #     self.assertEqual(response.status_code, 400)
+    #     response = self.c.get('/', HTTP_HOST='yourdomain.com')
+    #     self.assertEqual(response.status_code, 200)  after add in ALLOWED_HOSTS = []
+        
     def test_product_detail_url(self):
         response = self.c.get(reverse('store:product_detail', args=['django-beginners']))
         self.assertEqual(response.status_code, 200)
